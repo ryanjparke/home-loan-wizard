@@ -1,6 +1,9 @@
 import React,  { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import {connect} from 'react-redux';
+import updateCity from '../WizardTwo/WizardTwo.js';
+
 class WizardTwo extends Component {
     render(){
         return(
@@ -18,4 +21,12 @@ class WizardTwo extends Component {
     }
 }
 
-export default WizardTwo;
+function mapStateToProps(state) {
+    const{city} = state;
+
+    return{
+        city
+    };
+}
+
+export default connect(mapStateToProps, { updateCity } )( WizardTwo);
